@@ -77,11 +77,20 @@ function TreeNode({
           }}
           onClick={handleToggle}
         >
-          <span style={{ marginRight: '6px', fontSize: '12px' }}>{expanded ? '🔽' : '▶️'}</span>
+          <span
+            style={{
+              marginRight: '6px',
+              fontSize: '12px',
+              transition: 'transform 0.3s ease',
+              transform: expanded ? 'rotate(90deg)' : 'rotate(0deg)',
+            }}
+          >
+            ▶
+          </span>
           {node.title}
         </div>
-        {expanded &&
-          node.children?.map((child) => (
+        <div className={`tree-children ${expanded ? 'expanded' : ''}`}>
+          {node.children?.map((child) => (
             <TreeNode
               key={child.path}
               node={child}
@@ -93,6 +102,7 @@ function TreeNode({
               nodeRefs={nodeRefs}
             />
           ))}
+        </div>
       </div>
     );
   }
@@ -153,7 +163,7 @@ export default function DocTree({ tree, currentPath, onSelect }: DocTreeProps) {
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-    }, 100);
+    }, 150);
     return () => clearTimeout(timer);
   }, [currentPath, expandedPaths]);
 

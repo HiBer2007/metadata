@@ -119,7 +119,7 @@ function DocPageContent() {
         <aside
           ref={sidebarRef}
           className="sidebar"
-          style={{ width: actualWidth, minWidth: actualWidth, flexShrink: 0, overflow: 'hidden' }}
+          style={{ width: actualWidth, minWidth: actualWidth }}
         >
           {!isSidebarCollapsed && (
             <>
@@ -166,7 +166,9 @@ function DocPageContent() {
               lineHeight: 1,
             }}
           >
-            {isSidebarCollapsed ? '▶' : '◀'}
+            <span className={`sidebar-toggle-icon ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+              {isSidebarCollapsed ? '◀' : '▶'}
+            </span>
           </button>
         </div>
 

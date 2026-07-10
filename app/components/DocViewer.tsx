@@ -3,6 +3,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 interface DocViewProps {
   content: string;
@@ -33,17 +34,28 @@ function resolveRelativePath(currentPath: string, linkPath: string): string {
 
 export default function DocView({ content, loading = false, currentPath }: DocViewProps) {
   const router = useRouter();
+  const [fadeKey, setFadeKey] = useState(0);
+
+  // 每次内容变化时触发重新渲染并触发淡入
+  useEffect(() => {
+    if (!loading) {
+      setFadeKey((prev) => prev + 1);
+    }
+  }, [content, loading]);
 
   if (loading) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-        <p style={{ color: 'var(--text-secondary)' }}>⏳ 加载中...</p>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+        <div className="spinner" />
+        <p className="loading-pulse" style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>
+          加载中...
+        </p>
       </div>
     );
   }
 
   return (
-    <article className="markdown-body">
+    <article className="markdown-body fade-enter" key={fadeKey}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
