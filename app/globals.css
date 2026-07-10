@@ -147,3 +147,59 @@ body {
 .markdown-body th {
   background-color: var(--bg-secondary);
 }
+
+/* 内容区设置为纵向 flex，让文档内容撑满，底部导航固定 */
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+}
+
+/* 文档内容滚动区 */
+.doc-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 底部导航栏 */
+.nav-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 0;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-btn:hover:not(:disabled) {
+  background: var(--bg-card);
+  border-color: var(--link-color);
+}
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.nav-btn .label {
+  font-weight: 500;
+}
+.nav-btn .title {
+  color: var(--text-secondary);
+}

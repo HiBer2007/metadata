@@ -2,9 +2,22 @@
 
 import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import DocTree from '@/app/components/DocTree';
 import DocView from '@/app/components/DocViewer';
+
+// 递归扁平化树，提取所有文件节点（保持顺序）
+function flattenFiles(nodes: any[]): any[] {
+  let files: any[] = [];
+  for (const node of nodes) {
+    if (node.type === 'file') {
+      files.push(node);
+    } else if (node.children) {
+      files = files.concat(flattenFiles(node.children));
+    }
+  }
+  return files;
+}
 
 function DocPageContent() {
   const router = useRouter();
@@ -23,7 +36,7 @@ function DocPageContent() {
       .catch(() => setTree([]));
   }, []);
 
-  // 加载文档内容
+  // 当前文档内容
   const loadContent = useCallback((path: string) => {
     setLoading(true);
     fetch(`/api/docs/content?path=${encodeURIComponent(path)}`)
@@ -43,6 +56,12 @@ function DocPageContent() {
       loadContent(currentPath);
     }
   }, [currentPath, loadContent]);
+
+  // 扁平文件列表（用于翻页）
+  const fileList = useMemo(() => flattenFiles(tree), [tree]);
+  const currentIndex = useMemo(() => fileList.findIndex(f => f.path === currentPath), [fileList, currentPath]);
+  const prevFile = currentIndex > 0 ? fileList[currentIndex - 1] : null;
+  const nextFile = currentIndex < fileList.length - 1 ? fileList[currentIndex + 1] : null;
 
   const handleSelect = (path: string) => {
     router.push(`/?path=${encodeURIComponent(path)}`, { scroll: false });
@@ -65,7 +84,32 @@ function DocPageContent() {
           )}
         </aside>
         <main className="content-area">
-          <DocView content={content} loading={loading} />
+          <div className="doc-scroll">
+            <DocView content={content} loading={loading} />
+          </div>
+          <div className="nav-footer">
+            <button
+              className="nav-btn"
+              disabled={!prevFile}
+              onClick={() => prevFile && handleSelect(prevFile.path)}
+            >
+              <span>◀</span>
+              <span className="label">上一篇</span>
+              {prevFile && <span className="title">{prevFile.title}</span>}
+            </button>
+            <span style={{ color: 'var(--text-secondary)' }}>
+              {currentIndex >= 0 ? `${currentIndex + 1} / ${fileList.length}` : ''}
+            </span>
+            <button
+              className="nav-btn"
+              disabled={!nextFile}
+              onClick={() => nextFile && handleSelect(nextFile.path)}
+            >
+              {nextFile && <span className="title">{nextFile.title}</span>}
+              <span className="label">下一篇</span>
+              <span>▶</span>
+            </button>
+          </div>
         </main>
       </div>
     </>

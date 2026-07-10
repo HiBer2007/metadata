@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-// 提取文档的显示标题（取自第一个一级标题）
 function extractTitle(filePath: string): string | null {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -12,7 +11,6 @@ function extractTitle(filePath: string): string | null {
   }
 }
 
-// 读取目录下的 _order.json，返回权重映射 { entryName: weight }
 function loadOrderMap(dirPath: string): Map<string, number> {
   const orderFile = path.join(dirPath, '_order.json');
   if (!fs.existsSync(orderFile)) return new Map();
@@ -29,7 +27,6 @@ function loadOrderMap(dirPath: string): Map<string, number> {
   }
 }
 
-// 递归扫描目录，构建树节点
 function scanDir(dirPath: string, basePath: string = ''): any[] {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
   const orderMap = loadOrderMap(dirPath);
@@ -38,8 +35,6 @@ function scanDir(dirPath: string, basePath: string = ''): any[] {
   for (const entry of entries) {
     const fullPath = path.join(dirPath, entry.name);
     const relativePath = path.join(basePath, entry.name);
-
-    // 忽略 _order.json 本身
     if (entry.isFile() && entry.name === '_order.json') continue;
 
     if (entry.isDirectory()) {
@@ -50,7 +45,7 @@ function scanDir(dirPath: string, basePath: string = ''): any[] {
         title: entry.name,
         path: relativePath,
         children,
-        weight: orderMap.get(entry.name) ?? Infinity, // 未定义权重放最后
+        weight: orderMap.get(entry.name) ?? Infinity,
       });
     } else if (entry.isFile() && entry.name.endsWith('.md')) {
       const title = extractTitle(fullPath) || entry.name.replace(/\.md$/, '');
@@ -64,7 +59,6 @@ function scanDir(dirPath: string, basePath: string = ''): any[] {
     }
   }
 
-  // 排序：先按 weight（数字，Infinity 放最后），再按 name 字母顺序
   items.sort((a, b) => {
     if (a.weight !== b.weight) return a.weight - b.weight;
     return a.name.localeCompare(b.name);
@@ -75,9 +69,7 @@ function scanDir(dirPath: string, basePath: string = ''): any[] {
 
 export function getDocTree(): any[] {
   const docRoot = path.join(process.cwd(), 'doc');
-  if (!fs.existsSync(docRoot)) {
-    return [];
-  }
+  if (!fs.existsSync(docRoot)) return [];
   return scanDir(docRoot, '');
 }
 
