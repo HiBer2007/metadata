@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import DocTree from '@/components/DocTree';
-import DocView from '@/components/DocView';
+import DocTree from '@/app/components/DocTree';
+import DocView from '@/app/components/DocViewer';
 
 interface DocNode {
   type: 'file' | 'directory';
