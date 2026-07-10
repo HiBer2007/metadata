@@ -16,7 +16,6 @@ interface DocTreeProps {
   onSelect: (path: string) => void;
 }
 
-// 递归查找节点路径（父级链）
 function findNodePath(tree: DocNode[], targetPath: string): string[] | null {
   for (const node of tree) {
     if (node.type === 'file' && node.path === targetPath) {
@@ -49,9 +48,8 @@ function TreeNode({
   onToggle: (path: string, expanded: boolean) => void;
   nodeRefs: React.MutableRefObject<Map<string, HTMLDivElement>>;
 }) {
-  const [expanded, setExpanded] = useState(level < 1); // 初始展开第一级
+  const [expanded, setExpanded] = useState(level < 1);
 
-  // 当外部 expandedPaths 变化时，更新展开状态
   useEffect(() => {
     const isExpanded = expandedPaths.has(node.path);
     setExpanded(isExpanded);
@@ -132,15 +130,13 @@ export default function DocTree({ tree, currentPath, onSelect }: DocTreeProps) {
   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
   const nodeRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  // 当 currentPath 变化时，计算需要展开的路径，并滚动到目标节点
   useEffect(() => {
     if (!tree.length || !currentPath) return;
-
-    // 查找节点路径
     const pathChain = findNodePath(tree, currentPath);
-    if (!pathChain) return;
-
-    // 展开所有父级目录（不包括文件本身）
+    if (!pathChain) {
+      setExpandedPaths(new Set());
+      return;
+    }
     const newExpanded = new Set<string>();
     for (const p of pathChain) {
       if (p !== currentPath) {
@@ -148,16 +144,18 @@ export default function DocTree({ tree, currentPath, onSelect }: DocTreeProps) {
       }
     }
     setExpandedPaths(newExpanded);
-
-    // 滚动到目标文件节点
-    const targetEl = nodeRefs.current.get(currentPath);
-    if (targetEl) {
-      // 延迟执行确保DOM更新
-      setTimeout(() => {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 50);
-    }
   }, [tree, currentPath]);
+
+  useEffect(() => {
+    if (!currentPath) return;
+    const timer = setTimeout(() => {
+      const targetEl = nodeRefs.current.get(currentPath);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [currentPath, expandedPaths]);
 
   const handleToggle = (path: string, expanded: boolean) => {
     setExpandedPaths((prev) => {

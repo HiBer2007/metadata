@@ -1,12 +1,10 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect, useState, useCallback, useMemo } from 'react';
 import DocTree from '@/app/components/DocTree';
 import DocView from '@/app/components/DocViewer';
 
-// 递归扁平化树，提取所有文件节点（保持顺序）
 function flattenFiles(nodes: any[]): any[] {
   let files: any[] = [];
   for (const node of nodes) {
@@ -28,7 +26,13 @@ function DocPageContent() {
   const [content, setContent] = useState('# 加载中...');
   const [loading, setLoading] = useState(true);
 
-  // 加载文档树
+  const [sidebarWidth, setSidebarWidth] = useState(280);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const startWidth = useRef(0);
+
   useEffect(() => {
     fetch('/api/docs/tree')
       .then((res) => res.json())
@@ -36,7 +40,6 @@ function DocPageContent() {
       .catch(() => setTree([]));
   }, []);
 
-  // 当前文档内容
   const loadContent = useCallback((path: string) => {
     setLoading(true);
     fetch(`/api/docs/content?path=${encodeURIComponent(path)}`)
@@ -57,7 +60,6 @@ function DocPageContent() {
     }
   }, [currentPath, loadContent]);
 
-  // 扁平文件列表（用于翻页）
   const fileList = useMemo(() => flattenFiles(tree), [tree]);
   const currentIndex = useMemo(() => fileList.findIndex(f => f.path === currentPath), [fileList, currentPath]);
   const prevFile = currentIndex > 0 ? fileList[currentIndex - 1] : null;
@@ -67,25 +69,110 @@ function DocPageContent() {
     router.push(`/?path=${encodeURIComponent(path)}`, { scroll: false });
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    isDragging.current = true;
+    startX.current = e.clientX;
+    startWidth.current = sidebarWidth;
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging.current) return;
+    const delta = e.clientX - startX.current;
+    let newWidth = startWidth.current + delta;
+    if (newWidth < 60) newWidth = 60;
+    if (newWidth > 500) newWidth = 500;
+    setSidebarWidth(newWidth);
+    if (newWidth < 100 && !isSidebarCollapsed) {
+      setIsSidebarCollapsed(true);
+    } else if (newWidth >= 100 && isSidebarCollapsed) {
+      setIsSidebarCollapsed(false);
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+  };
+
+  const toggleSidebar = () => {
+    if (isSidebarCollapsed) {
+      setSidebarWidth(280);
+      setIsSidebarCollapsed(false);
+    } else {
+      setSidebarWidth(0);
+      setIsSidebarCollapsed(true);
+    }
+  };
+
+  const actualWidth = isSidebarCollapsed ? 0 : sidebarWidth;
+
   return (
     <>
       <header className="header-bar">
         <h1>📚 HiBerNET 元数据服务</h1>
       </header>
       <div className="main-container">
-        <aside className="sidebar">
-          <div style={{ paddingBottom: '0.5rem', fontWeight: 'bold', color: 'var(--text-secondary)' }}>
-            文档目录
-          </div>
-          {tree.length > 0 ? (
-            <DocTree tree={tree} currentPath={currentPath} onSelect={handleSelect} />
-          ) : (
-            <p style={{ color: 'var(--text-secondary)' }}>暂无文档</p>
+        <aside
+          ref={sidebarRef}
+          className="sidebar"
+          style={{ width: actualWidth, minWidth: actualWidth, flexShrink: 0, overflow: 'hidden' }}
+        >
+          {!isSidebarCollapsed && (
+            <>
+              <div style={{ paddingBottom: '0.5rem', fontWeight: 'bold', color: 'var(--text-secondary)' }}>
+                文档目录
+              </div>
+              {tree.length > 0 ? (
+                <DocTree tree={tree} currentPath={currentPath} onSelect={handleSelect} />
+              ) : (
+                <p style={{ color: 'var(--text-secondary)' }}>暂无文档</p>
+              )}
+            </>
           )}
         </aside>
+
+        <div
+          style={{
+            width: '6px',
+            flexShrink: 0,
+            cursor: 'col-resize',
+            background: 'var(--border-color)',
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          onMouseDown={handleMouseDown}
+        >
+          <button
+            onClick={toggleSidebar}
+            style={{
+              position: 'absolute',
+              right: '-12px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '4px',
+              color: 'var(--text-primary)',
+              cursor: 'pointer',
+              padding: '2px 4px',
+              fontSize: '12px',
+              zIndex: 10,
+              lineHeight: 1,
+            }}
+          >
+            {isSidebarCollapsed ? '▶' : '◀'}
+          </button>
+        </div>
+
         <main className="content-area">
           <div className="doc-scroll">
-            <DocView content={content} loading={loading} />
+            <DocView content={content} loading={loading} currentPath={currentPath} />
           </div>
           <div className="nav-footer">
             <button

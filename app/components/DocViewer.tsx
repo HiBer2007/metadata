@@ -7,9 +7,31 @@ import { useRouter } from 'next/navigation';
 interface DocViewProps {
   content: string;
   loading?: boolean;
+  currentPath: string;
 }
 
-export default function DocView({ content, loading = false }: DocViewProps) {
+function resolveRelativePath(currentPath: string, linkPath: string): string {
+  if (linkPath.startsWith('/')) {
+    return linkPath.slice(1);
+  }
+  if (linkPath.startsWith('./') || linkPath.startsWith('../')) {
+    const parts = currentPath.split('/');
+    const currentDir = parts.slice(0, -1).join('/');
+    let resolved = currentDir ? currentDir + '/' + linkPath : linkPath;
+    const segments = resolved.split('/');
+    const stack: string[] = [];
+    for (const seg of segments) {
+      if (seg === '..') stack.pop();
+      else if (seg !== '.' && seg !== '') stack.push(seg);
+    }
+    return stack.join('/');
+  }
+  const parts = currentPath.split('/');
+  const currentDir = parts.slice(0, -1).join('/');
+  return currentDir ? currentDir + '/' + linkPath : linkPath;
+}
+
+export default function DocView({ content, loading = false, currentPath }: DocViewProps) {
   const router = useRouter();
 
   if (loading) {
@@ -27,19 +49,18 @@ export default function DocView({ content, loading = false }: DocViewProps) {
         components={{
           a: ({ href, children, ...props }) => {
             if (href && (href.endsWith('.md') || href.includes('.md?'))) {
-              const [path, anchor] = href.split('#');
+              const [linkPath, anchor] = href.split('#');
+              const resolvedPath = resolveRelativePath(currentPath, linkPath);
               const handleClick = (e: React.MouseEvent) => {
                 e.preventDefault();
-                router.push(`/?path=${encodeURIComponent(path)}${anchor ? '#' + anchor : ''}`);
+                router.push(`/?path=${encodeURIComponent(resolvedPath)}${anchor ? '#' + anchor : ''}`);
               };
-              // 保留所有属性，让 CSS 控制样式
               return (
                 <a href={href} onClick={handleClick} {...props}>
                   {children}
                 </a>
               );
             }
-            // 外部链接，新窗口打开
             return (
               <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
                 {children}
