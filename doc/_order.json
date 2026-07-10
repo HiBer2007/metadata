@@ -1,0 +1,6 @@
+[
+  { "name": "index.md", "weight": 1 },
+  { "name": "guide", "weight": 3 },
+  { "name": "advanced.md", "weight": 4 },
+  { "name": "api", "weight": 5 }
+]

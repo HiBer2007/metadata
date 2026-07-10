@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+// 提取文档的显示标题（取自第一个一级标题）
 function extractTitle(filePath: string): string | null {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -11,41 +12,65 @@ function extractTitle(filePath: string): string | null {
   }
 }
 
+// 读取目录下的 _order.json，返回权重映射 { entryName: weight }
+function loadOrderMap(dirPath: string): Map<string, number> {
+  const orderFile = path.join(dirPath, '_order.json');
+  if (!fs.existsSync(orderFile)) return new Map();
+  try {
+    const raw = fs.readFileSync(orderFile, 'utf-8');
+    const list: { name: string; weight: number }[] = JSON.parse(raw);
+    const map = new Map<string, number>();
+    for (const item of list) {
+      map.set(item.name, item.weight);
+    }
+    return map;
+  } catch {
+    return new Map();
+  }
+}
+
+// 递归扫描目录，构建树节点
 function scanDir(dirPath: string, basePath: string = ''): any[] {
   const entries = fs.readdirSync(dirPath, { withFileTypes: true });
-  const result: any[] = [];
+  const orderMap = loadOrderMap(dirPath);
+  const items: any[] = [];
 
   for (const entry of entries) {
     const fullPath = path.join(dirPath, entry.name);
     const relativePath = path.join(basePath, entry.name);
 
+    // 忽略 _order.json 本身
+    if (entry.isFile() && entry.name === '_order.json') continue;
+
     if (entry.isDirectory()) {
       const children = scanDir(fullPath, relativePath);
-      result.push({
+      items.push({
         type: 'directory',
         name: entry.name,
         title: entry.name,
         path: relativePath,
         children,
+        weight: orderMap.get(entry.name) ?? Infinity, // 未定义权重放最后
       });
     } else if (entry.isFile() && entry.name.endsWith('.md')) {
       const title = extractTitle(fullPath) || entry.name.replace(/\.md$/, '');
-      result.push({
+      items.push({
         type: 'file',
         name: entry.name.replace(/\.md$/, ''),
-        title: title,
+        title,
         path: relativePath,
+        weight: orderMap.get(entry.name) ?? Infinity,
       });
     }
   }
 
-  result.sort((a, b) => {
-    if (a.type === 'directory' && b.type !== 'directory') return -1;
-    if (a.type !== 'directory' && b.type === 'directory') return 1;
+  // 排序：先按 weight（数字，Infinity 放最后），再按 name 字母顺序
+  items.sort((a, b) => {
+    if (a.weight !== b.weight) return a.weight - b.weight;
     return a.name.localeCompare(b.name);
   });
 
-  return result;
+  return items;
 }
 
 export function getDocTree(): any[] {

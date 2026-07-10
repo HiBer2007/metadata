@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: '元数据服务站点',
+  title: 'HiBerNET元数据服务',
   description: '提供元数据下载和文件下载服务，附带文档站',
 };
 
@@ -14,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body>
-        <div className="container">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

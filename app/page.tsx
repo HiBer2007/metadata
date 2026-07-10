@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useEffect, useState, useCallback } from 'react';
 import DocTree from '@/app/components/DocTree';
-import DocView from '@/app/components/DocViewer'; // 请根据实际文件名调整
+import DocView from '@/app/components/DocViewer';
 
 function DocPageContent() {
   const router = useRouter();
@@ -15,6 +15,7 @@ function DocPageContent() {
   const [content, setContent] = useState('# 加载中...');
   const [loading, setLoading] = useState(true);
 
+  // 加载文档树
   useEffect(() => {
     fetch('/api/docs/tree')
       .then((res) => res.json())
@@ -22,6 +23,7 @@ function DocPageContent() {
       .catch(() => setTree([]));
   }, []);
 
+  // 加载文档内容
   const loadContent = useCallback((path: string) => {
     setLoading(true);
     fetch(`/api/docs/content?path=${encodeURIComponent(path)}`)
@@ -47,27 +49,32 @@ function DocPageContent() {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100%', gap: '2rem' }}>
-      <aside style={{ width: '280px', minWidth: '280px', maxHeight: '100%', overflowY: 'auto', borderRight: '1px solid var(--border-color)', paddingRight: '1rem' }}>
-        <h3 style={{ marginTop: 0, padding: '0.5rem 0', color: 'var(--text-primary)' }}>
-          📚 文档目录
-        </h3>
-        {tree.length > 0 ? (
-          <DocTree tree={tree} currentPath={currentPath} onSelect={handleSelect} />
-        ) : (
-          <p style={{ color: 'var(--text-secondary)' }}>暂无文档</p>
-        )}
-      </aside>
-      <main style={{ flex: 1, overflowY: 'auto', padding: '0 0.5rem' }}>
-        <DocView content={content} loading={loading} />
-      </main>
-    </div>
+    <>
+      <header className="header-bar">
+        <h1>📚 HiBerNET 元数据服务</h1>
+      </header>
+      <div className="main-container">
+        <aside className="sidebar">
+          <div style={{ paddingBottom: '0.5rem', fontWeight: 'bold', color: 'var(--text-secondary)' }}>
+            文档目录
+          </div>
+          {tree.length > 0 ? (
+            <DocTree tree={tree} currentPath={currentPath} onSelect={handleSelect} />
+          ) : (
+            <p style={{ color: 'var(--text-secondary)' }}>暂无文档</p>
+          )}
+        </aside>
+        <main className="content-area">
+          <DocView content={content} loading={loading} />
+        </main>
+      </div>
+    </>
   );
 }
 
 export default function HomePage() {
   return (
-    <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>⏳ 加载文档中...</div>}>
+    <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>⏳ 加载文档中...</div>}>
       <DocPageContent />
     </Suspense>
   );

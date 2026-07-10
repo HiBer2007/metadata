@@ -1,5 +1,4 @@
-/* 深色系主题 */
-/* app/globals.css */
+/* 深色主题变量 */
 :root {
   --bg-primary: #0d1117;
   --bg-secondary: #161b22;
@@ -27,88 +26,124 @@ html, body {
 }
 
 body {
-  padding: 1rem 1.5rem;
-}
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  background-color: var(--bg-secondary);
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  height: calc(100vh - 2rem);
   display: flex;
   flex-direction: column;
+  height: 100vh;
   overflow: hidden;
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: color 0.2s;
+/* 顶部标题栏 */
+.header-bar {
+  flex-shrink: 0;
+  height: 56px;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+.header-bar h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-a:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
+/* 主容器（占据剩余高度） */
+.main-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background-color: var(--bg-primary);
 }
 
-code {
+/* 左侧目录栏，可调整宽度（拖拽右边框） */
+.sidebar {
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  overflow-y: auto;
+  resize: horizontal;       /* 允许水平调整宽度 */
+  overflow: auto;           /* 必须同时设置 overflow */
+  min-width: 180px;
+  max-width: 500px;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* 右侧内容区 */
+.content-area {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+}
+
+/* 深色滚动条（Chrome/Edge/Safari） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5568;
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--bg-secondary);
+}
+
+/* Markdown 内容样式（可选） */
+.markdown-body {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.markdown-body h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.markdown-body p {
+  margin: 0.75rem 0;
+}
+.markdown-body code {
   background-color: var(--code-bg);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-size: 0.9em;
 }
-
-pre {
+.markdown-body pre {
   background-color: var(--code-bg);
   padding: 1rem;
   border-radius: 6px;
   overflow-x: auto;
 }
-
-blockquote {
+.markdown-body blockquote {
   border-left: 4px solid var(--border-color);
   padding-left: 1rem;
   color: var(--text-secondary);
 }
-
-hr {
+.markdown-body hr {
   border: 0;
   border-top: 1px solid var(--border-color);
   margin: 2rem 0;
 }
-
-table {
+.markdown-body table {
   border-collapse: collapse;
   width: 100%;
   margin: 1rem 0;
 }
-
-th, td {
+.markdown-body th, .markdown-body td {
   border: 1px solid var(--border-color);
   padding: 0.5rem 0.75rem;
   text-align: left;
 }
-
-th {
+.markdown-body th {
   background-color: var(--bg-secondary);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-ul, ol {
-  padding-left: 1.5rem;
-  margin: 0.75rem 0;
-}
-
-li {
-  margin: 0.25rem 0;
 }

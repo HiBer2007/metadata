@@ -18,7 +18,7 @@ export default function DocView({ content, loading = false }: DocViewProps) {
   }
 
   return (
-    <article className="markdown-body" style={{ maxWidth: '900px', margin: '0 auto' }}>
+    <article className="markdown-body">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
     </article>
   );

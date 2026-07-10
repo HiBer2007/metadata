@@ -22,7 +22,7 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
   onSelect: (path: string) => void;
   level?: number;
 }) {
-  const [expanded, setExpanded] = useState(level < 1);
+  const [expanded, setExpanded] = useState(level < 1); // 默认展开第一层
 
   if (node.type === 'directory') {
     const isActive = currentPath.startsWith(node.path);
@@ -31,14 +31,17 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
         <div
           style={{
             cursor: 'pointer',
-            fontWeight: 'bold',
             padding: '4px 8px',
             borderRadius: '4px',
-            background: isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
+            display: 'flex',
+            alignItems: 'center',
+            background: isActive ? 'rgba(255,255,255,0.06)' : 'transparent',
+            fontWeight: 500,
           }}
           onClick={() => setExpanded(!expanded)}
         >
-          {expanded ? '📂' : '📁'} {node.title}
+          <span style={{ marginRight: '6px', fontSize: '12px' }}>{expanded ? '▼' : '▶'}</span>
+          {node.title}
         </div>
         {expanded && node.children?.map((child) => (
           <TreeNode
@@ -57,7 +60,7 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
   return (
     <div
       style={{
-        marginLeft: level * 16 + 8,
+        marginLeft: level * 16 + 20,
         cursor: 'pointer',
         padding: '2px 8px',
         borderRadius: '4px',
@@ -76,12 +79,7 @@ export default function DocTree({ tree, currentPath, onSelect }: DocTreeProps) {
   return (
     <nav style={{ overflowY: 'auto', height: '100%', padding: '8px 0' }}>
       {tree.map((node) => (
-        <TreeNode
-          key={node.path}
-          node={node}
-          currentPath={currentPath}
-          onSelect={onSelect}
-        />
+        <TreeNode key={node.path} node={node} currentPath={currentPath} onSelect={onSelect} />
       ))}
     </nav>
   );
