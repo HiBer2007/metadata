@@ -22,12 +22,12 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
   onSelect: (path: string) => void;
   level?: number;
 }) {
-  const [expanded, setExpanded] = useState(level < 1); // 默认展开第一层
+  const [expanded, setExpanded] = useState(level < 0); // 默认展开第零层
 
   if (node.type === 'directory') {
     const isActive = currentPath.startsWith(node.path);
     return (
-      <div style={{ marginLeft: level * 16 }}>
+      <div style={{ marginLeft: level * 16 + 5 }}>
         <div
           style={{
             cursor: 'pointer',
