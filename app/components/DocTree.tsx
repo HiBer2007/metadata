@@ -27,7 +27,7 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
   if (node.type === 'directory') {
     const isActive = currentPath.startsWith(node.path);
     return (
-      <div style={{ marginLeft: level * 16 + 5 }}>
+      <div style={{ marginLeft: level * 16 + 2 }}>
         <div
           style={{
             cursor: 'pointer',
