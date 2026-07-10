@@ -40,7 +40,7 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
           }}
           onClick={() => setExpanded(!expanded)}
         >
-          <span style={{ marginRight: '6px', fontSize: '12px' }}>{expanded ? '▼' : '▶'}</span>
+          <span style={{ marginRight: '6px', fontSize: '12px' }}>{expanded ? '-' : '+'}</span>
           {node.title}
         </div>
         {expanded && node.children?.map((child) => (
@@ -60,7 +60,7 @@ function TreeNode({ node, currentPath, onSelect, level = 0 }: {
   return (
     <div
       style={{
-        marginLeft: level * 16 + 20,
+        marginLeft: level * 16 + 0,
         cursor: 'pointer',
         padding: '2px 8px',
         borderRadius: '4px',
