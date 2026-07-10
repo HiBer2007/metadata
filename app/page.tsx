@@ -1,28 +1,20 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useEffect, useState, useCallback } from 'react';
 import DocTree from '@/app/components/DocTree';
-import DocView from '@/app/components/DocViewer';
+import DocView from '@/app/components/DocViewer'; // 请根据实际文件名调整
 
-interface DocNode {
-  type: 'file' | 'directory';
-  name: string;          // 原始文件名（无扩展名）或目录名
-  title: string;         // 显示标题（文件取自 # 标题，目录仍用 name）
-  path: string;
-  children?: DocNode[];
-}
-
-export default function HomePage() {
+function DocPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentPath = searchParams.get('path') || 'index.md';
 
-  const [tree, setTree] = useState<DocNode[]>([]);
-  const [content, setContent] = useState<string>('# 加载中...');
+  const [tree, setTree] = useState([]);
+  const [content, setContent] = useState('# 加载中...');
   const [loading, setLoading] = useState(true);
 
-  // 加载文档树
   useEffect(() => {
     fetch('/api/docs/tree')
       .then((res) => res.json())
@@ -30,7 +22,6 @@ export default function HomePage() {
       .catch(() => setTree([]));
   }, []);
 
-  // 加载当前文档内容
   const loadContent = useCallback((path: string) => {
     setLoading(true);
     fetch(`/api/docs/content?path=${encodeURIComponent(path)}`)
@@ -45,7 +36,6 @@ export default function HomePage() {
       });
   }, []);
 
-  // 路径变化时加载内容
   useEffect(() => {
     if (currentPath) {
       loadContent(currentPath);
@@ -58,17 +48,7 @@ export default function HomePage() {
 
   return (
     <div style={{ display: 'flex', height: '100%', gap: '2rem' }}>
-      {/* 左侧目录树 */}
-      <aside
-        style={{
-          width: '280px',
-          minWidth: '280px',
-          maxHeight: '100%',
-          overflowY: 'auto',
-          borderRight: '1px solid var(--border-color)',
-          paddingRight: '1rem',
-        }}
-      >
+      <aside style={{ width: '280px', minWidth: '280px', maxHeight: '100%', overflowY: 'auto', borderRight: '1px solid var(--border-color)', paddingRight: '1rem' }}>
         <h3 style={{ marginTop: 0, padding: '0.5rem 0', color: 'var(--text-primary)' }}>
           📚 文档目录
         </h3>
@@ -78,11 +58,17 @@ export default function HomePage() {
           <p style={{ color: 'var(--text-secondary)' }}>暂无文档</p>
         )}
       </aside>
-
-      {/* 右侧文档内容 */}
       <main style={{ flex: 1, overflowY: 'auto', padding: '0 0.5rem' }}>
         <DocView content={content} loading={loading} />
       </main>
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>⏳ 加载文档中...</div>}>
+      <DocPageContent />
+    </Suspense>
   );
 }
