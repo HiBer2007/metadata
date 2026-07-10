@@ -3,9 +3,9 @@
  * 修改此表即可增加或调整元数据源
  */
 export const metadataMapping = {
-  default: 'service-info.json',
-  service: 'service-info.json',
-  another: 'another.json',
+  default: 'service_list.json',
+  service: 'service_list.json',
+  flfhmcl: 'FLFHMCL.json',
   // 可继续扩展
 } as const;
 

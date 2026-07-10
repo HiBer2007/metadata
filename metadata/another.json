@@ -1,7 +1,0 @@
-{
-  "title": "另一个元数据示例",
-  "author": "Admin",
-  "timestamp": "2026-07-09T12:00:00Z",
-  "tags": ["demo", "metadata"],
-  "extra": "这个 JSON 可以存放任意结构的数据。"
-}
