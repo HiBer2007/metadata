@@ -36,7 +36,6 @@ export default function DocView({ content, loading = false, currentPath }: DocVi
   const router = useRouter();
   const [fadeKey, setFadeKey] = useState(0);
 
-  // 每次内容变化时触发重新渲染并触发淡入
   useEffect(() => {
     if (!loading) {
       setFadeKey((prev) => prev + 1);
@@ -62,10 +61,19 @@ export default function DocView({ content, loading = false, currentPath }: DocVi
           a: ({ href, children, ...props }) => {
             if (href && (href.endsWith('.md') || href.includes('.md?'))) {
               const [linkPath, anchor] = href.split('#');
-              const resolvedPath = resolveRelativePath(currentPath, linkPath);
+              let resolvedPath = resolveRelativePath(currentPath, linkPath);
+              
+              // 🔧 关键修复：对路径进行解码，防止双重编码
+              try {
+                resolvedPath = decodeURIComponent(resolvedPath);
+              } catch {
+                // 如果解码失败，保持原样
+              }
+
               const handleClick = (e: React.MouseEvent) => {
                 e.preventDefault();
-                router.push(`/?path=${encodeURIComponent(resolvedPath)}${anchor ? '#' + anchor : ''}`);
+                const targetPath = `/?path=${encodeURIComponent(resolvedPath)}${anchor ? '#' + anchor : ''}`;
+                router.push(targetPath, { scroll: false });
               };
               return (
                 <a href={href} onClick={handleClick} {...props}>
