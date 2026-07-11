@@ -1,5 +1,5 @@
 {
-  "name": "hibernet-metadata-service",
+  "name": "my-metadata-service",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,12 +13,14 @@
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^4.0.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "typescript": "^5",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38"
