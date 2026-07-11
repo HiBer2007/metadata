@@ -1,5 +1,6 @@
 [
   { "name": "index.md", "weight": 1 },
   { "name": "指南", "weight": 3 },
-  { "name": "API端点", "weight": 5 }
+  { "name": "API端点", "weight": 5 },
+  { "name": "一些参考", "weight": 7}
 ]
