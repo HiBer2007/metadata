@@ -10,7 +10,7 @@
     {
         "name":"FLFHMCL",
         "discription":"Metadata for downloading FLFHMCL project",
-        "link":"/flfhmcl"
+        "type":"flfhmcl"
     },
     ···
 ]
