@@ -6,6 +6,8 @@ export const metadataMapping = {
   default: 'service_list.json',
   service: 'service_list.json',
   flfhmcl: 'FLFHMCL.json',
+  flfHBNsso: 'FLF-HBNET-SSO-mod.json',
+  flftitle: 'flftitle.json',
   // 可继续扩展
 } as const;
 
