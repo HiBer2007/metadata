@@ -3,5 +3,15 @@
         "name":"FLFHMCL",
         "discription":"Metadata for downloading FLFHMCL project",
         "type":"flfhmcl"
+    },
+    {
+        "name":"HiBerNET SSO FLFMOD",
+        "discription":"Metadata for downloading HiBerNET SSO FLFMOD project",
+        "type":"flfHBNsso"
+    },
+    {
+        "name":"flftitle",
+        "discription":"Metadata for downloading flftitle component",
+        "type":"flftitle"
     }
 ]
