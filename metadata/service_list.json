@@ -13,5 +13,10 @@
         "name":"flftitle",
         "discription":"Metadata for downloading flftitle component",
         "type":"flftitle"
+    },
+    {
+        "name":"SSO_Bridge",
+        "discription":"Metadata for downloading HiBerNET SSO Bridge FLFMOD project",
+        "type":"ssobridge"
     }
 ]

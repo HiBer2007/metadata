@@ -1,0 +1,13 @@
+{
+    "project":"SSO_Bridge",
+    "Latest":"1.0.0",
+    "Project_Link":"https://github.com/HiBer2007/SSO_Bridge/",
+    "License":"LGPL-V2.1",
+    "List":[
+        {
+            "version":"1.0.0",
+            "download_link":"https://github.com/HiBer2007/SSO_Bridge/releases/download/R1.0.0/mod-flf-sso-bridge-1.0.0.jar",
+            "release_page":"https://github.com/HiBer2007/SSO_Bridge/releases/tag/R1.0.0"
+        }
+    ]
+}

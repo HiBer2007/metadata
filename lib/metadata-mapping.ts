@@ -8,6 +8,7 @@ export const metadataMapping = {
   flfhmcl: 'FLFHMCL.json',
   flfHBNsso: 'FLF-HBNET-SSO-mod.json',
   flftitle: 'flftitle.json',
+  ssobridge: 'SSO_Bridge.json',
   // 可继续扩展
 } as const;
 
