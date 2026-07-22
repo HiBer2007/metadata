@@ -6,8 +6,10 @@
     "List":[
         {
             "version":"0.2.0-alpha",
+            "meta_version":2,
             "download_link":"https://github.com/HiBer2007/FLFHMCL/releases/download/0.2.0-alpha/flf-title-mod.jar",
-            "release_page":"https://github.com/HiBer2007/FLFHMCL/releases/tag/0.2.0-alpha"
+            "release_page":"https://github.com/HiBer2007/FLFHMCL/releases/tag/0.2.0-alpha",
+            "sha_256":"8c8fd492715a040645762c71791bb3d50585b9390aa9b6a85730951413a92c4f"
         }
     ]
 }

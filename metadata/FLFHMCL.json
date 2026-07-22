@@ -16,8 +16,10 @@
         },
         {
             "version":"0.3.0-alpha",
+            "meta_version": 2,
             "download_link":"https://github.com/HiBer2007/FLFHMCL/releases/download/0.3.0-alpha/FLFHMCL-0.3.0-alpha.jar",
-            "release_page":"https://github.com/HiBer2007/FLFHMCL/releases/tag/0.3.0-alpha"
+            "release_page":"https://github.com/HiBer2007/FLFHMCL/releases/tag/0.3.0-alpha",
+            "sha_256":"475d3c3cf9d118f6e398149d7ae8fc51d2785fc36828698d642ba9feee22c7cc"
         }
     ]
 }
