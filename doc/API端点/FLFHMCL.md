@@ -8,7 +8,7 @@
 
 ### 项目信息
 - **项目标识**：`FLFHMCL`
-- **最新版本**：`2.1`
+- **最新版本**：`2.1.6`
 - **仓库地址**：[https://github.com/HiBer2007/FLFHMCL](https://github.com/HiBer2007/FLFHMCL)
 - **许可证**：LGPL-V2.1
 
@@ -50,6 +50,7 @@
 | `Project_Link` | string | 项目主页或源代码仓库的 URL。 |
 | `License` | string | 项目采用的许可证标识（此处为 `"LGPL-V2.1"`）。 |
 | `List` | array | 包含所有已发布版本的元数据对象数组（通常按版本顺序排列）。 |
+| `ProblemVersions` | array | 已知存在严重故障、不建议继续使用的版本列表；启动器应提示用户升级或切换。 |
 
 ### `List` 中每个版本对象的字段
 
@@ -69,6 +70,25 @@
   *示例*：0.3.0-alpha 版本。
 
 > **兼容性建议**：客户端应同时支持两种格式，缺失 `meta_version` 时按版本 1 处理；版本 2 提供的 `sha_256` 可用于下载后的完整性校验。
+
+### `ProblemVersions`
+
+存在严重故障、已被撤下的版本不再出现在 `List` 中，而是记录在 `ProblemVersions`：
+
+```json
+"ProblemVersions": [
+    {
+        "version": "2.1.4",
+        "reason": "启动崩溃：SettingsManager 重复初始化；关闭动画异常"
+    }
+]
+```
+
+启动器应：
+
+- 不提供这些版本的正常下载入口；
+- 检测到实例使用问题版本时，提示“存在严重故障，请尽快更新/切换版本”；
+- 允许跳转到组件更新界面。
 
 ---
 
