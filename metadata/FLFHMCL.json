@@ -1,6 +1,6 @@
 {
   "project": "FLFHMCL",
-  "Latest": "2.1",
+  "Latest": "2.1.1",
   "Project_Link": "https://github.com/HiBer2007/FLFHMCL",
   "License": "LGPL-V2.1",
   "List": [
@@ -27,6 +27,13 @@
       "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCL-2.1/FLFHMCL-2.1.jar",
       "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCL-2.1",
       "sha_256": "dd4f0b759e8273588d1d3b0bb4f9a286d40532ab8a8aa2af64445622960764b0"
+    },
+    {
+      "version": "2.1.1",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCL-2.1.1/FLFHMCL-2.1.1.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCL-2.1.1",
+      "sha_256": "06884ccf705b06d80d95f34d7815efc7b8bafdef5d5da42258700a15de144f57"
     }
   ],
   "Dependencies": [
