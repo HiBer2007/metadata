@@ -8,7 +8,7 @@
 
 ### 项目信息
 - **项目标识**：`FLFHMCL`
-- **最新版本**：`0.3.0-alpha`
+- **最新版本**：`2.1`
 - **仓库地址**：[https://github.com/HiBer2007/FLFHMCL](https://github.com/HiBer2007/FLFHMCL)
 - **许可证**：LGPL-V2.1
 
@@ -125,3 +125,48 @@
 
 *本规范适用于 FLFHMCL 核心及所有附属组件，最新元数据以 GitHub Release 页面为准。*  
 *Release 总览：[https://github.com/HiBer2007/FLFHMCL/releases](https://github.com/HiBer2007/FLFHMCL/releases)*
+---
+
+## 3. FLF API 1.1
+
+- **项目标识**：`flf-api`
+- **最新版本**：`1.1`
+- **查询**：`/api/metadata?type=flfapi`
+- **下载**：`https://github.com/HiBer2007/metadata/releases/download/FLF-API-1.1/flf-api-1.1.jar`
+
+```json
+{
+  "project": "flf-api",
+  "Latest": "1.1",
+  "List": [
+    {
+      "version": "1.1",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-API-1.1/flf-api-1.1.jar",
+      "sha_256": "9b812517ef771987c5ad6a5a00eea741333286e2de08e059c7a1ee12d9e541ef"
+    }
+  ],
+  "Dependencies": [
+    {"group": "net.fabricmc", "artifact": "fabric-loader", "version": "0.19.5"},
+    {"group": "net.fabricmc", "artifact": "sponge-mixin", "version": "0.17.4+mixin.0.8.7"}
+  ]
+}
+```
+
+## 4. 依赖库列表
+
+FLFHMCL 2.1 的 `Dependencies` 字段列出运行所需库，客户端可直接按坐标下载：
+
+| 库 | 版本 | 用途 |
+|---|---|---|
+| org.apache.logging.log4j:log4j-api | 2.24.3 | 日志 |
+| org.apache.logging.log4j:log4j-core | 2.24.3 | 日志实现 |
+| org.apache.logging.log4j:log4j-slf4j2-impl | 2.24.3 | SLF4J 桥 |
+| org.slf4j:slf4j-api | 2.0.16 | 日志门面 |
+| org.ow2.sat4j:org.ow2.sat4j.core | 2.3.6 | 依赖求解 |
+| org.ow2.sat4j:org.ow2.sat4j.pb | 2.3.6 | 依赖求解 |
+| org.lwjgl:lwjgl / lwjgl-glfw / lwjgl-opengl | 3.3.6 | Early Display |
+| org.lwjgl:*:natives-windows | 3.3.6 | LWJGL natives |
+| org.openjfx:javafx-base/graphics/controls:win | 21.0.13 | JavaFX（随 JDK） |
+
+`FLFHMCLauncher` 安装实例时读取该列表并写入 `libraries.json`。

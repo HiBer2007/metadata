@@ -1,0 +1,35 @@
+{
+  "project": "flf-api",
+  "Latest": "1.1",
+  "Project_Link": "https://github.com/HiBer2007/FLFHMCL",
+  "License": "LGPL-V2.1",
+  "Dependencies": [
+    {
+      "artifact": "fabric-loader",
+      "version": "0.19.5",
+      "group": "net.fabricmc",
+      "scope": "provided"
+    },
+    {
+      "artifact": "sponge-mixin",
+      "version": "0.17.4+mixin.0.8.7",
+      "group": "net.fabricmc",
+      "scope": "provided"
+    },
+    {
+      "artifact": "log4j-api",
+      "version": "2.24.3",
+      "group": "org.apache.logging.log4j",
+      "scope": "provided"
+    }
+  ],
+  "List": [
+    {
+      "version": "1.1",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-API-1.1/flf-api-1.1.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLF-API-1.1",
+      "sha_256": "9b812517ef771987c5ad6a5a00eea741333286e2de08e059c7a1ee12d9e541ef"
+    }
+  ]
+}

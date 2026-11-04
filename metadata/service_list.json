@@ -1,22 +1,27 @@
 [
-    {
-        "name":"FLFHMCL",
-        "discription":"Metadata for downloading FLFHMCL project",
-        "type":"flfhmcl"
-    },
-    {
-        "name":"HiBerNET SSO FLFMOD",
-        "discription":"Metadata for downloading HiBerNET SSO FLFMOD project",
-        "type":"flfHBNsso"
-    },
-    {
-        "name":"flftitle",
-        "discription":"Metadata for downloading flftitle component",
-        "type":"flftitle"
-    },
-    {
-        "name":"SSO_Bridge",
-        "discription":"Metadata for downloading HiBerNET SSO Bridge FLFMOD project",
-        "type":"ssobridge"
-    }
+  {
+    "name": "FLFHMCL",
+    "discription": "Metadata for downloading FLFHMCL project",
+    "type": "flfhmcl"
+  },
+  {
+    "name": "HiBerNET SSO FLFMOD",
+    "discription": "Metadata for downloading HiBerNET SSO FLFMOD project",
+    "type": "flfHBNsso"
+  },
+  {
+    "name": "flftitle",
+    "discription": "Metadata for downloading flftitle component",
+    "type": "flftitle"
+  },
+  {
+    "name": "SSO_Bridge",
+    "discription": "Metadata for downloading HiBerNET SSO Bridge FLFMOD project",
+    "type": "ssobridge"
+  },
+  {
+    "name": "FLF API",
+    "discription": "Metadata for downloading FLF Platform API",
+    "type": "flfapi"
+  }
 ]
