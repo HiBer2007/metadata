@@ -1,15 +1,22 @@
 {
-    "project":"flftitle",
-    "Latest":"0.2.0-alpha",
-    "Project_Link":"https://github.com/HiBer2007/FLFHMCL",
-    "License":"LGPL-V2.1",
-    "List":[
-        {
-            "version":"0.2.0-alpha",
-            "meta_version":2,
-            "download_link":"https://github.com/HiBer2007/FLFHMCL/releases/download/0.2.0-alpha/flf-title-mod.jar",
-            "release_page":"https://github.com/HiBer2007/FLFHMCL/releases/tag/0.2.0-alpha",
-            "sha_256":"8c8fd492715a040645762c71791bb3d50585b9390aa9b6a85730951413a92c4f"
-        }
-    ]
+  "project": "flftitle",
+  "Latest": "1.2.0",
+  "Project_Link": "https://github.com/HiBer2007/FLFHMCL",
+  "License": "LGPL-V2.1",
+  "List": [
+    {
+      "version": "0.2.0-alpha",
+      "meta_version": 2,
+      "download_link": "https://github.com/HiBer2007/FLFHMCL/releases/download/0.2.0-alpha/flf-title-mod.jar",
+      "release_page": "https://github.com/HiBer2007/FLFHMCL/releases/tag/0.2.0-alpha",
+      "sha_256": "8c8fd492715a040645762c71791bb3d50585b9390aa9b6a85730951413a92c4f"
+    },
+    {
+      "version": "1.2.0",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-Title-1.2.0/flf-title-1.2.0.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLF-Title-1.2.0",
+      "sha_256": "48b0c18a05f6b96dec770e3e5d844d1343854c218c01bdddd37fe2f9afad6464"
+    }
+  ]
 }
