@@ -147,12 +147,19 @@
 *Release 总览：[https://github.com/HiBer2007/FLFHMCL/releases](https://github.com/HiBer2007/FLFHMCL/releases)*
 ---
 
-## 3. FLF API 1.1
+## 3. FLF API
 
 - **项目标识**：`flf-api`
 - **最新版本**：`1.1`
 - **查询**：`/api/metadata?type=flfapi`
 - **下载**：`https://github.com/HiBer2007/metadata/releases/download/FLF-API-1.1/flf-api-1.1.jar`
+
+FLF API 与 HMCL 二进制绑定，每个版本必须登记适用的 HMCL 与 FLFHMCL 范围：
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `hmcl_versions` | array | 适配的 HMCL 精确版本列表 |
+| `flfhmcl_versions` | array | 适配的 FLFHMCL 版本约束，如 `">=2.1.6"` |
 
 ```json
 {
@@ -160,10 +167,11 @@
   "Latest": "1.1",
   "List": [
     {
-      "version": "1.1",
+      "version": "1.2.0-hmcl3.14",
       "meta_version": 3,
-      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-API-1.1/flf-api-1.1.jar",
-      "sha_256": "9b812517ef771987c5ad6a5a00eea741333286e2de08e059c7a1ee12d9e541ef"
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-API-1.2.0-hmcl3.14/dist-1.2.0-hmcl3.14.jar",
+      "hmcl_versions": ["3.14.0.341", "3.14.0.342", "3.14.0.343", "3.14.0.344", "3.14.1"],
+      "flfhmcl_versions": [">=2.1.6"]
     }
   ],
   "Dependencies": [
@@ -172,6 +180,8 @@
   ]
 }
 ```
+
+启动器选择 API 时应同时检查 `hmcl_versions` 与 `flfhmcl_versions`；切换 HMCL/FLFHMCL 版本后必须重新筛选。
 
 ## 4. 依赖库列表
 
