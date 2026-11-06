@@ -3,6 +3,9 @@
   "Latest": "0.1.0",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
+  "Artifacts": {
+    "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 100KB，托管在本站）"
+  },
   "List": [
     {
       "version": "0.1.0",

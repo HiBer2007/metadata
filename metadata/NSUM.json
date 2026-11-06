@@ -5,20 +5,27 @@
   "License": "GPL-3.0",
   "Runtime": {
     "exe": "NeoServerUpdateModpack.exe",
-    "layout": "zip",
-    "notes": "zip 内可直接含 exe 与 Qt/exporters 等部署内容；bridge 解压后整目录装到 <HMCL>/.hmcl/nsum/runtime/"
+    "layout": "hic-installer",
+    "notes": "产物 >10MB 走 GH Release（本项即 HIC 安装器 exe）。bridge 以 --cli --json --silent --path <runtime> --flow <内置无快捷方式流程> 调用，进度回显到 HMCL GUI；不创建桌面/开始菜单项"
+  },
+  "Artifacts": {
+    "policy": ">10MB 使用 GitHub Releases；<10MB 可托管在 metadata 站点 public/ 下",
+    "installer": true,
+    "flow": "install",
+    "modpack_extension": ".nsumpack"
   },
   "List": [
     {
       "version": "1.0.0",
       "meta_version": 1,
-      "download_link": "https://metadata.hibernet.top/nsum/NSUM_Runtime_1.0.0.zip",
+      "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.0/NSUM_Installer_1.0.0.exe",
       "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.0",
       "sha_256": "",
+      "size_bytes": 0,
       "bridge_versions": [
         ">=0.1.0"
       ],
-      "notes": "首个登记版本；sha_256 待发布产物后补齐（bridge 校验为空时跳过）"
+      "notes": "HIC 安装器 exe；sha_256 待发布产物后补齐（为空时 bridge 跳过校验）"
     }
   ],
   "ProblemVersions": []
