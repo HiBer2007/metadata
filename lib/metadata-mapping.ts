@@ -10,6 +10,8 @@ export const metadataMapping = {
   flfHBNsso: 'FLF-HBNET-SSO-mod.json',
   flftitle: 'flftitle.json',
   ssobridge: 'SSO_Bridge.json',
+  NSUM: 'NSUM.json',
+  'nsum-bridge': 'nsum-bridge.json',
   // 可继续扩展
 } as const;
 

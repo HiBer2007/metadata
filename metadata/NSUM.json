@@ -1,0 +1,25 @@
+{
+  "project": "NSUM",
+  "Latest": "1.0.0",
+  "Project_Link": "https://github.com/HiBer2007/NeoServerUpdateModpack",
+  "License": "GPL-3.0",
+  "Runtime": {
+    "exe": "NeoServerUpdateModpack.exe",
+    "layout": "zip",
+    "notes": "zip 内可直接含 exe 与 Qt/exporters 等部署内容；bridge 解压后整目录装到 <HMCL>/.hmcl/nsum/runtime/"
+  },
+  "List": [
+    {
+      "version": "1.0.0",
+      "meta_version": 1,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/NSUM-1.0.0/NSUM_Runtime_1.0.0.zip",
+      "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.0",
+      "sha_256": "",
+      "bridge_versions": [
+        ">=0.1.0"
+      ],
+      "notes": "首个登记版本；sha_256 待发布产物后补齐（bridge 校验为空时跳过）"
+    }
+  ],
+  "ProblemVersions": []
+}
