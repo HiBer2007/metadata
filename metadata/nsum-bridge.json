@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.1.0",
+  "Latest": "0.2.0",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
-    "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 100KB，托管在本站）"
+    "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 140KB，托管在本站）"
   },
   "List": [
+    {
+      "version": "0.2.0",
+      "meta_version": 2,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.2.0.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.2.0",
+      "sha_256": "d9cae306fa7ea66ed62d15d29d0b50f7af720994352f825aa2549b972b79d903",
+      "size_bytes": 142629,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "启动窗口注入 NSUM 更新检查（第一步）、取消可中止、安装失败回滚旧版本、NSUM 图标、Bridge 自动更新（metadata 检查/下载/校验/替换）"
+    },
     {
       "version": "0.1.0",
       "meta_version": 1,
@@ -19,7 +34,7 @@
       "nsum_versions": [
         ">=1.0.0"
       ],
-      "notes": "首个登记版本；sha_256 待发布产物后补齐"
+      "notes": "首个登记版本"
     }
   ],
   "ProblemVersions": []

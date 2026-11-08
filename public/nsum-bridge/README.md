@@ -12,5 +12,5 @@ public/nsum-bridge/nsum-bridge-<version>.jar
 示例：
 
 ```
-https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.1.0.jar
+https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.2.0.jar
 ```
