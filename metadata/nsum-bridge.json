@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.2.0",
+  "Latest": "0.2.2",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
     "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 140KB，托管在本站）"
   },
   "List": [
+    {
+      "version": "0.2.2",
+      "meta_version": 2,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.2.2.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.2.2",
+      "sha_256": "96b331f2ead356035e56fd2498d611fdb4d12beacba453725f05b39a79822162",
+      "size_bytes": 142912,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "NSUM 页面显示 Bridge 卡片（版本/检查更新）；修复版本读取（读自身 jar 的 fabric.mod.json）"
+    },
     {
       "version": "0.2.0",
       "meta_version": 2,
