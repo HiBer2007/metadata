@@ -1,0 +1,27 @@
+{
+  "project": "nsum-bridge-mcdr",
+  "Latest": "0.1.0",
+  "Project_Link": "https://github.com/HiBer2007/nsum-bridge-mcdr",
+  "License": "LGPL-V2.1",
+  "Artifacts": {
+    "policy": "MCDR 插件包（.mcdr，约 10KB）托管在 metadata public/，同时附 GitHub Release"
+  },
+  "List": [
+    {
+      "version": "0.1.0",
+      "meta_version": 1,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge-mcdr/nsum_bridge-0.1.0.mcdr",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge-mcdr/releases/tag/v0.1.0",
+      "sha_256": "c5701f4fc9ba48e1a8d876df9be97def3e62dd4416ff5834ef1834308652c9de",
+      "size_bytes": 10576,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "服务端 MCDR 桥：启动前同步整合包内容并安装/切换服务端核心与加载器（原版/Fabric/Quilt/Forge/NeoForge），附无 GUI CLI"
+    }
+  ],
+  "ProblemVersions": []
+}
