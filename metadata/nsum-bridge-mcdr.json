@@ -1,15 +1,30 @@
 {
   "project": "nsum-bridge-mcdr",
-  "Latest": "0.1.0",
+  "Latest": "0.2.0",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge-mcdr",
   "License": "LGPL-V2.1",
   "Artifacts": {
-    "policy": "MCDR 插件包（.mcdr，约 10KB）托管在 metadata public/，同时附 GitHub Release"
+    "policy": "MCDR 插件包（.mcdr，约 16KB）托管在 metadata public/，同时附 GitHub Release"
   },
   "List": [
     {
+      "version": "0.2.0",
+      "meta_version": 3,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge-mcdr/nsum_bridge-0.2.0.mcdr",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge-mcdr/releases/tag/v0.2.0",
+      "sha_256": "a0068095dcae3086981c486d4d1049ebf9daa13969046f961d7c4a9159554c08",
+      "size_bytes": 16516,
+      "mcdreforged_versions": [
+        ">=2.10.0"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "服务端核心目录（原版/插件服/模组服/混合服/代理服/基岩互通，带分类），按 branchType 限制插件服；按核心同步 MCDR handler；plugins/ 与 plugin/<配置目录>/ 映射；CLI --list-cores"
+    },
+    {
       "version": "0.1.0",
-      "meta_version": 2,
+      "meta_version": 1,
       "download_link": "https://metadata.hibernet.top/nsum-bridge-mcdr/nsum_bridge-0.1.0.mcdr",
       "release_page": "https://github.com/HiBer2007/nsum-bridge-mcdr/releases/tag/v0.1.0",
       "sha_256": "c5701f4fc9ba48e1a8d876df9be97def3e62dd4416ff5834ef1834308652c9de",
@@ -20,7 +35,7 @@
       "nsum_versions": [
         ">=1.0.0"
       ],
-      "notes": "服务端 MCDR 桥：启动前同步整合包内容并安装/切换服务端核心与加载器（原版/Fabric/Quilt/Forge/NeoForge），附无 GUI CLI；仅依赖 MCDReforged + NSUM Runtime，不需要 FLFHMCL"
+      "notes": "首个登记版本；仅依赖 MCDReforged + NSUM Runtime"
     }
   ],
   "ProblemVersions": []
