@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge-mcdr",
-  "Latest": "0.2.0",
+  "Latest": "0.3.0",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge-mcdr",
   "License": "LGPL-V2.1",
   "Artifacts": {
-    "policy": "MCDR 插件包（.mcdr，约 16KB）托管在 metadata public/，同时附 GitHub Release"
+    "policy": "MCDR 插件包（.mcdr，约 18KB）托管在 metadata public/，同时附 GitHub Release"
   },
   "List": [
+    {
+      "version": "0.3.0",
+      "meta_version": 4,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge-mcdr/nsum_bridge-0.3.0.mcdr",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge-mcdr/releases/tag/v0.3.0",
+      "sha_256": "ddd9c4e825e1773a412e4e5c09d367dcd0f6302297d6a1419be450a326a5084e",
+      "size_bytes": 17792,
+      "mcdreforged_versions": [
+        ">=2.10.0"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "全部核心均可自动安装：Spigot（BuildTools）、Pufferfish（Jenkins）、Mohist/Arclight/Cardboard（GitHub Releases），以及 Paper/Folia/Purpur/Velocity/Waterfall/BungeeCord/Geyser/原版/Fabric/Quilt/Forge/NeoForge"
+    },
     {
       "version": "0.2.0",
       "meta_version": 3,
@@ -20,7 +35,7 @@
       "nsum_versions": [
         ">=1.0.0"
       ],
-      "notes": "服务端核心目录（原版/插件服/模组服/混合服/代理服/基岩互通，带分类），按 branchType 限制插件服；按核心同步 MCDR handler；plugins/ 与 plugin/<配置目录>/ 映射；CLI --list-cores"
+      "notes": "服务端核心目录（带分类），branchType 限制插件服；按核心同步 MCDR handler；plugins/ 与 plugin/<配置目录>/ 映射"
     },
     {
       "version": "0.1.0",

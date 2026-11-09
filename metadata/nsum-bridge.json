@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.2.4",
+  "Latest": "0.2.5",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
     "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 140KB，托管在本站）"
   },
   "List": [
+    {
+      "version": "0.2.5",
+      "meta_version": 2,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.2.5.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.2.5",
+      "sha_256": "2cab77e809b4fcda9ffce6d2ceedda24e332faa231460618c67fa9bf52ff2712",
+      "size_bytes": 143454,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "服务端专用包在清单里携带 core（paper/folia/velocity/…），实例标记保留 core"
+    },
     {
       "version": "0.2.4",
       "meta_version": 2,
