@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge-mcdr",
-  "Latest": "0.3.1",
+  "Latest": "0.3.2",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge-mcdr",
   "License": "LGPL-V2.1",
   "Artifacts": {
     "policy": "MCDR 插件包（.mcdr，约 19KB）托管在 metadata public/，同时附 GitHub Release"
   },
   "List": [
+    {
+      "version": "0.3.2",
+      "meta_version": 6,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge-mcdr/nsum_bridge-0.3.2.mcdr",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge-mcdr/releases/tag/v0.3.2",
+      "sha_256": "bce5f03bfbd25e0cb79a55ab430b9fad346cf644ae3e9bdaf4a0636934729083",
+      "size_bytes": 19703,
+      "mcdreforged_versions": [
+        ">=2.10.0"
+      ],
+      "nsum_versions": [
+        ">=1.0.1"
+      ],
+      "notes": "Spigot 完整编译实测通过：内置 Git + JDK 21 跑 BuildTools（Bootstrap 用 WINDOWS-ROOT 证书库，BuildTools.jar 下载带校验失败的降级重试），产出 spigot 1.21.1 jar 并成功启动（Done 9.6s）"
+    },
     {
       "version": "0.3.1",
       "meta_version": 5,
