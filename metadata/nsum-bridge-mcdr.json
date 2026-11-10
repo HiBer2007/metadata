@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge-mcdr",
-  "Latest": "0.3.0",
+  "Latest": "0.3.1",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge-mcdr",
   "License": "LGPL-V2.1",
   "Artifacts": {
-    "policy": "MCDR 插件包（.mcdr，约 18KB）托管在 metadata public/，同时附 GitHub Release"
+    "policy": "MCDR 插件包（.mcdr，约 19KB）托管在 metadata public/，同时附 GitHub Release"
   },
   "List": [
+    {
+      "version": "0.3.1",
+      "meta_version": 5,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge-mcdr/nsum_bridge-0.3.1.mcdr",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge-mcdr/releases/tag/v0.3.1",
+      "sha_256": "866984de57b79e8366892fa7d32db95a6ed70b4c3157fb2dcbc1636c6a5bf0f9",
+      "size_bytes": 19243,
+      "mcdreforged_versions": [
+        ">=2.10.0"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "Spigot BuildTools 使用内置 Git（<安装>/tools/git，兼容 PortableGit 与 MinGit 的 bin/mingw64/cmd/ucrt64 布局），不再假定系统 Git；配置新增 git 覆盖项"
+    },
     {
       "version": "0.3.0",
       "meta_version": 4,
@@ -20,7 +35,7 @@
       "nsum_versions": [
         ">=1.0.0"
       ],
-      "notes": "全部核心均可自动安装：Spigot（BuildTools）、Pufferfish（Jenkins）、Mohist/Arclight/Cardboard（GitHub Releases），以及 Paper/Folia/Purpur/Velocity/Waterfall/BungeeCord/Geyser/原版/Fabric/Quilt/Forge/NeoForge"
+      "notes": "全部核心均可自动安装（Spigot/Pufferfish/Mohist/Arclight/Cardboard 等）"
     },
     {
       "version": "0.2.0",
