@@ -1,4 +1,5 @@
 [
   { "name": "index.md", "weight": 1 },
-  { "name": "server_list.md", "weight": 2 }
+  { "name": "server_list.md", "weight": 2 },
+  { "name": "版本命名.md", "weight": 3 }
 ]
