@@ -1,6 +1,6 @@
 {
   "project": "flf-api",
-  "Latest": "2.1.2.17",
+  "Latest": "2.2.2.17",
   "Project_Link": "https://github.com/HiBer2007/FLFHMCL",
   "License": "LGPL-V2.1",
   "Dependencies": [
@@ -103,6 +103,19 @@
       "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-API-2.1.2.17/flf-api-2.1.2.17.jar",
       "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLF-API-2.1.2.17",
       "sha_256": "de3b11d0fb8e637496fed4ec920cdf34b62861e39d22f6aab9126fdfbfcf2274",
+      "hmcl_versions": [
+        "3.17.2"
+      ],
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ]
+    },
+    {
+      "version": "2.2.2.17",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-API-2.2.2.17/flf-api-2.2.2.17.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLF-API-2.2.2.17",
+      "sha_256": "cae905d72794170ba12886ebac9dffc2ed87e746d36cd34ad029ab1fed2e2d0f",
       "hmcl_versions": [
         "3.17.2"
       ],
