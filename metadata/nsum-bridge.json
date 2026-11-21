@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.3.0",
+  "Latest": "0.4.2.17",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
     "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 140KB，托管在本站）"
   },
   "List": [
+    {
+      "version": "0.4.2.17",
+      "meta_version": 3,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.2.17.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.4.2.17",
+      "sha_256": "e748c0e34a1a4340f88c8e88277ad24381dc6e1ff9e287670de6196c7a65ed29",
+      "size_bytes": 158161,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "HMCL 3.17.2 迁移；安装/更新任务改用 FLF Tasks API，修复 Controllers.taskDialog(TaskExecutor,...) 的 NoSuchMethodError"
+    },
     {
       "version": "0.3.0",
       "meta_version": 3,
