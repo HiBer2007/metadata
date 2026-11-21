@@ -1,6 +1,6 @@
 {
   "project": "flftitle",
-  "Latest": "1.2.1",
+  "Latest": "1.2.2.17",
   "Project_Link": "https://github.com/HiBer2007/FLFHMCL",
   "License": "LGPL-V2.1",
   "List": [
@@ -24,6 +24,13 @@
       "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-Title-1.2.1/flf-title-1.2.1.jar",
       "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLF-Title-1.2.1",
       "sha_256": "94e09e4ccc1b752b817a2748be875fb6dda73c51e7b17ae84fad3ba2114bce76"
+    },
+    {
+      "version": "1.2.2.17",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLF-Title-1.2.2.17/flf-title-1.2.2.17.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLF-Title-1.2.2.17",
+      "sha_256": "cbfb743a9d3edd215b337ab64ead3b42da4b58f87d906bd730b4687f155fe578"
     }
   ]
 }
