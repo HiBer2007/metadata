@@ -1,6 +1,6 @@
 {
   "project": "NSUM",
-  "Latest": "1.0.1",
+  "Latest": "1.0.2",
   "Project_Link": "https://github.com/HiBer2007/NeoServerUpdateModpack",
   "License": "GPL-3.0",
   "Runtime": {
@@ -16,6 +16,18 @@
     "bundled_git": "MinGit（tools/git），安装器下载并定位 ucrt64/bin/git.exe，运行时自动更新"
   },
   "List": [
+    {
+      "version": "1.0.2",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.2/NSUM_Runtime_CLI_1.0.2.zip",
+      "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.2",
+      "sha_256": "38acb89a7f6bf4a2474b4cf8b6ae482c3c8c6d9f760b4f47a6ddba1b3f0a43f0",
+      "size_bytes": 52830767,
+      "bridge_versions": [
+        ">=0.2.5"
+      ],
+      "notes": "修复中文/Unicode 路径安装崩溃（0xC0000409）：HCI 与运行时改用宽命令行重建 UTF-8 argv，exeDir 改 GetModuleFileNameW，NeoBuild/NeoCLI 全面改用 fsu8 路径助手，修复 LoadLibrary 126、fs::relative 误删、info plugins 崩溃与 exec build 中文导出；安装器复用已有 tools/git（增量安装 1-2 秒），Git 下载可选且限时 150 秒、失败回退系统 Git"
+    },
     {
       "version": "1.0.1",
       "meta_version": 2,

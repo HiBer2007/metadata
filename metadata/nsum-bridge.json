@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.2.5",
+  "Latest": "0.3.0",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
     "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 140KB，托管在本站）"
   },
   "List": [
+    {
+      "version": "0.3.0",
+      "meta_version": 3,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.3.0.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.3.0",
+      "sha_256": "731aee0b523b941b31e56928ab5dd6dd622b06bb01746d918e6f2114eaf37413",
+      "size_bytes": 174861,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "启动前三步分支选择（内嵌启动对话框：Git 分支→整合包分支→确认，CLI 解析、单分支自动跳过）；MCLHR 同步（mc mods sync --mode link --prune）；NSUM 页面/实例卡片打开编辑器；HMCL 安装整合包页与 NSUM 页面支持克隆/创建 NSUM 仓库"
+    },
     {
       "version": "0.2.5",
       "meta_version": 2,
