@@ -1,6 +1,6 @@
 {
   "project": "NSUM",
-  "Latest": "1.0.2",
+  "Latest": "1.0.3",
   "Project_Link": "https://github.com/HiBer2007/NeoServerUpdateModpack",
   "License": "GPL-3.0",
   "Runtime": {
@@ -16,6 +16,18 @@
     "bundled_git": "MinGit（tools/git），安装器下载并定位 ucrt64/bin/git.exe，运行时自动更新"
   },
   "List": [
+    {
+      "version": "1.0.3",
+      "meta_version": 4,
+      "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.3/NSUM_Runtime_CLI_1.0.3.zip",
+      "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.3",
+      "sha_256": "15d1214489175017e3aa71ccc8254403d60910f0016837483df7f1acaddae233",
+      "size_bytes": 52898143,
+      "bridge_versions": [
+        ">=0.2.5"
+      ],
+      "notes": "HIC 多线程分段下载（--download-threads 1-16，threads 参数；cpr→curl 分段→PowerShell 单流）；外部下载模式（hci_cli --external-download <dir>，exit 10 + downloads.json/files/）；修复并发 runProcess 捕获文件冲突；含中文路径、Git 复用/兜底、MCLHR 等既有修复"
+    },
     {
       "version": "1.0.2",
       "meta_version": 3,
