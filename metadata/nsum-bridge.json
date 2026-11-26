@@ -12,8 +12,8 @@
       "meta_version": 3,
       "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.2.17.jar",
       "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.4.2.17",
-      "sha_256": "87e286375a818c46cb0f668fc1d6efcde7179c2e4c688687eca449f3642f4c11",
-      "size_bytes": 152923,
+      "sha_256": "dae4ba48e2925c45e81182c993021f0afbd7976257f3dba60fba6ddbe7b22f0b",
+      "size_bytes": 155045,
       "flfhmcl_versions": [
         ">=2.1.6"
       ],
