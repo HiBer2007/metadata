@@ -1,6 +1,6 @@
 {
   "project": "NSUM",
-  "Latest": "1.0.3",
+  "Latest": "1.0.4",
   "Project_Link": "https://github.com/HiBer2007/NeoServerUpdateModpack",
   "License": "GPL-3.0",
   "Runtime": {
@@ -17,6 +17,17 @@
   },
   "List": [
     {
+      "version": "1.0.4",
+      "meta_version": 5,
+      "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.4/NSUM_Runtime_CLI_1.0.4.zip",
+      "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.4",
+      "sha_256": "f2540b052c1d6c700092521fce279abf2478a587e7bf96a4d13526495d5a13e6",
+      "size_bytes": 52979828,
+      "bridge_versions": [
+        ">=0.2.5"
+      ],
+      "notes": "NSUM 自身下载多线程化：git-update 与指针下载支持 HTTP Range 分片（默认 16 线程、阈值 8MB、失败回退单流，环境变量 NSUM_DOWNLOAD_* 可调）；bridge 0.4.3.17 同步支持 Runtime/HIC 依赖多线程下载（10 分钟总时限 + 失败回退 + sha256 校验）；含 1.0.3 的 HIC 多线程/外部下载模式与中文路径修复"
+    },    {
       "version": "1.0.3",
       "meta_version": 4,
       "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.3/NSUM_Runtime_CLI_1.0.3.zip",

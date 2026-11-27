@@ -1,6 +1,6 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.4.2.17",
+  "Latest": "0.4.3.17",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
@@ -8,6 +8,20 @@
   },
   "List": [
     {
+      "version": "0.4.3.17",
+      "meta_version": 4,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.3.17.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.4.3.17",
+      "sha_256": "9b14a3907fa1635064076d2bd5e438728215cad373d5d198075491f7fe70a49e",
+      "size_bytes": 180228,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.0"
+      ],
+      "notes": "Runtime 包与 HIC 外部依赖下载改为 HTTP Range 分片多线程（默认 16 线程、10 分钟总时限、任一分片失败立即回退单流、sha256 校验）；配置 .hmcl/nsum/download.properties 或 -Dnsum.download.*"
+    },    {
       "version": "0.4.2.17",
       "meta_version": 3,
       "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.2.17.jar",
