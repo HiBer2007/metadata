@@ -1,6 +1,6 @@
 {
   "project": "NSUM",
-  "Latest": "1.0.4",
+  "Latest": "1.0.5",
   "Project_Link": "https://github.com/HiBer2007/NeoServerUpdateModpack",
   "License": "GPL-3.0",
   "Runtime": {
@@ -17,6 +17,17 @@
   },
   "List": [
     {
+      "version": "1.0.5",
+      "meta_version": 6,
+      "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.5/NSUM_Runtime_CLI_1.0.5.zip",
+      "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.5",
+      "sha_256": "261e35487c1a415115afacdd87b03829aafbc249be6e6b8eb3d7749a35e37d13",
+      "size_bytes": 53083322,
+      "bridge_versions": [
+        ">=0.4.4.17"
+      ],
+      "notes": "编辑器 CLI（info/exec/help，含 git-status/add/commit/push/pull/fetch/log/diff/checkout/reset/config，AI 可直接操作仓库）；.nsumpack 改为清单型 pack_format 2（默认只含 nsum.index.json，登记 repository commit/git_branch 与 files[]；附带文件需 --embed-patterns 正则显式声明并记录来源）；配套 bridge 0.4.4.17 按 sha256 缓存附带文件"
+    },    {
       "version": "1.0.4",
       "meta_version": 5,
       "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.4/NSUM_Runtime_CLI_1.0.4.zip",

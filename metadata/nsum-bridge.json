@@ -1,6 +1,6 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.4.3.17",
+  "Latest": "0.4.4.17",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
@@ -8,6 +8,20 @@
   },
   "List": [
     {
+      "version": "0.4.4.17",
+      "meta_version": 6,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.4.17.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.4.4.17",
+      "sha_256": "4fd6e32579e94ffd768803c62ab1e2e71595b28243a1f850134bcb39d42eda27",
+      "size_bytes": 184663,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.5"
+      ],
+      "notes": "支持清单型 .nsumpack（pack_format 2）：按 embedded[] 安装附带文件并以 SHA-256 缓存到 .hmcl/nsum/cache/files/ 跨整合包复用；旧包回退解压 overrides；实例标记记录 packFormat/sourceCommit/sourceGitBranch/defaultBranch"
+    },    {
       "version": "0.4.3.17",
       "meta_version": 4,
       "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.3.17.jar",
