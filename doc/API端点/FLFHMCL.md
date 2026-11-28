@@ -12,7 +12,7 @@
 
 ### 项目信息
 - **项目标识**：`FLFHMCL`
-- **最新版本**：`2.1.6`
+- **最新版本**：`2.1.8`
 - **仓库地址**：[https://github.com/HiBer2007/FLFHMCL](https://github.com/HiBer2007/FLFHMCL)
 - **许可证**：LGPL-V2.1
 

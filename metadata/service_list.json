@@ -5,6 +5,11 @@
     "type": "flfhmcl"
   },
   {
+    "name": "FLFHMCLauncher",
+    "discription": "Metadata for downloading FLFHMCLauncher project",
+    "type": "flfhmlauncher"
+  },
+  {
     "name": "HiBerNET SSO FLFMOD",
     "discription": "Metadata for downloading HiBerNET SSO FLFMOD project",
     "type": "flfHBNsso"

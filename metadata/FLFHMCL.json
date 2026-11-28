@@ -1,6 +1,6 @@
 {
   "project": "FLFHMCL",
-  "Latest": "2.1.6",
+  "Latest": "2.1.8",
   "Project_Link": "https://github.com/HiBer2007/FLFHMCL",
   "License": "LGPL-V2.1",
   "List": [
@@ -27,6 +27,20 @@
       "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCL-2.1.6/FLFHMCL-2.1.6.jar",
       "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCL-2.1.6",
       "sha_256": "7964db7c3e7ee0c9e89b2f915a6af68a986436848e511c093761841c7405c164"
+    },
+    {
+      "version": "2.1.7",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCL-2.1.7/FLFHMCL-2.1.7.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCL-2.1.7",
+      "sha_256": "e26b8e1f447724f1a9ea5a6ffefffa0779a30a48713a7936d3d9ace2785fdfe0"
+    },
+    {
+      "version": "2.1.8",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCL-2.1.8/FLFHMCL-2.1.8.jar",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCL-2.1.8",
+      "sha_256": "172a531ef94d7cbc34dcf07729a40266707a76d750f9f9e72da594bce804632a"
     }
   ],
   "Dependencies": [
@@ -150,7 +164,7 @@
     },
     {
       "version": "2.1.5",
-      "reason": "旧启动路径仍会导致关闭时 Configuration 未加载；请使用 2.1.6"
+      "reason": "旧启动路径仍会导致关闭时 Configuration 未加载；请使用 2.1.6 或更高版本"
     }
   ]
 }

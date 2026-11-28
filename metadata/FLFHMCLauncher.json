@@ -1,0 +1,16 @@
+{
+  "project": "FLFHMCLauncher",
+  "Latest": "0.3.11",
+  "Project_Link": "https://github.com/HiBer2007/FLFHMCLauncher",
+  "License": "LGPL-V2.1",
+  "List": [
+    {
+      "version": "0.3.11",
+      "meta_version": 3,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCLauncher-0.3.11/FLFHMCLauncher-0.3.11.exe",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCLauncher-0.3.11",
+      "sha_256": "d2e09186f7955d455cc29b84be6c510f41c0274fcdbd7d1688c5d7b14029922b"
+    }
+  ],
+  "Dependencies": []
+}
