@@ -21,8 +21,8 @@
       "meta_version": 7,
       "download_link": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/download/v1.0.6/NSUM_Runtime_CLI_1.0.6.zip",
       "release_page": "https://github.com/HiBer2007/NeoServerUpdateModpack/releases/tag/v1.0.6",
-      "sha_256": "4ab5809e4042f8215a30e68f2aac1168687a84481ef6e5cdc39c8f7e3d6c7414",
-      "size_bytes": 53547752,
+      "sha_256": "a7f6941f24e0e2ac53c883e2bced6c40b7aeb55353f251851b826cf592b8b7b3",
+      "size_bytes": 53547751,
       "bridge_versions": [
         ">=0.4.5.17"
       ],
