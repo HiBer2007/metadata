@@ -40,7 +40,8 @@
       "meta_version": 3,
       "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCL-2.1.8/FLFHMCL-2.1.8.jar",
       "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCL-2.1.8",
-      "sha_256": "172a531ef94d7cbc34dcf07729a40266707a76d750f9f9e72da594bce804632a"
+      "sha_256": "172a531ef94d7cbc34dcf07729a40266707a76d750f9f9e72da594bce804632a",
+      "notes": "GameDir 契约：Fabric 的 --gameDir 是 HMCL 的工作目录 .hmcl；真实 Minecraft 实例 .minecraft 通过 -Dflfhmcl.gameDir 传递。"
     }
   ],
   "Dependencies": [

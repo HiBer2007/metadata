@@ -1,15 +1,26 @@
 {
   "project": "FLFHMCLauncher",
-  "Latest": "0.3.11",
+  "Latest": "0.3.12",
   "Project_Link": "https://github.com/HiBer2007/FLFHMCLauncher",
   "License": "LGPL-V2.1",
   "List": [
+    {
+      "version": "0.3.12",
+      "meta_version": 4,
+      "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCLauncher-0.3.12/FLFHMCLauncher-0.3.12.exe",
+      "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCLauncher-0.3.12",
+      "sha_256": "55daeed61a010eca9bf730967c3a095a6e380694e22668c54bd666e0d7b6aad7",
+      "size_bytes": 46681397,
+      "notes": "修正 GameDir 语义：HMCL 是 Fabric 托管的 Java 程序，--gameDir 指向实例 .hmcl；真实 Minecraft 目录通过 -Dflfhmcl.gameDir 传递。快速启动器保留失败分析窗口。"
+    },
     {
       "version": "0.3.11",
       "meta_version": 3,
       "download_link": "https://github.com/HiBer2007/metadata/releases/download/FLFHMCLauncher-0.3.11/FLFHMCLauncher-0.3.11.exe",
       "release_page": "https://github.com/HiBer2007/metadata/releases/tag/FLFHMCLauncher-0.3.11",
-      "sha_256": "b2ce4446f02536afbe561d1a1f8435196d120536c732986e1fbe80bc92397da7"
+      "sha_256": "b2ce4446f02536afbe561d1a1f8435196d120536c732986e1fbe80bc92397da7",
+      "size_bytes": 46681397,
+      "notes": "快速启动器失败分析；GameDir 仍为旧的 hmcl-runtime 语义，不建议新实例使用。"
     }
   ],
   "Dependencies": []
