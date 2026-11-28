@@ -1,12 +1,27 @@
 {
   "project": "nsum-bridge",
-  "Latest": "0.4.4.17",
+  "Latest": "0.4.5.17",
   "Project_Link": "https://github.com/HiBer2007/nsum-bridge",
   "License": "LGPL-V2.1",
   "Artifacts": {
     "policy": ">10MB 用 GitHub Releases；<10MB 可托管在 metadata public/（本 jar 约 140KB，托管在本站）"
   },
   "List": [
+    {
+      "version": "0.4.5.17",
+      "meta_version": 7,
+      "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.5.17.jar",
+      "release_page": "https://github.com/HiBer2007/nsum-bridge/releases/tag/v0.4.5.17",
+      "sha_256": "b92a2716a03bea2b1f3b7e8cd20ec50ff187caf35d7a1b5b06727791e26d8f1a",
+      "size_bytes": 207827,
+      "flfhmcl_versions": [
+        ">=2.1.6"
+      ],
+      "nsum_versions": [
+        ">=1.0.6"
+      ],
+      "notes": "支持 .nsumpack repository.urls[]（SSH/HTTPS/HTTP）：按顺序 git ls-remote 探测、失败回退；已有检出用 git remote set-url 复用目录；兼容仅 repository.url / instance.repo 的旧包；实例记录 activeRepoUrl；36 个测试通过。"
+    },
     {
       "version": "0.4.4.17",
       "meta_version": 6,
@@ -21,7 +36,8 @@
         ">=1.0.5"
       ],
       "notes": "支持清单型 .nsumpack（pack_format 2）：按 embedded[] 安装附带文件并以 SHA-256 缓存到 .hmcl/nsum/cache/files/ 跨整合包复用；旧包回退解压 overrides；实例标记记录 packFormat/sourceCommit/sourceGitBranch/defaultBranch"
-    },    {
+    },
+    {
       "version": "0.4.3.17",
       "meta_version": 4,
       "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.3.17.jar",
@@ -35,7 +51,8 @@
         ">=1.0.0"
       ],
       "notes": "Runtime 包与 HIC 外部依赖下载改为 HTTP Range 分片多线程（默认 16 线程、10 分钟总时限、任一分片失败立即回退单流、sha256 校验）；配置 .hmcl/nsum/download.properties 或 -Dnsum.download.*"
-    },    {
+    },
+    {
       "version": "0.4.2.17",
       "meta_version": 3,
       "download_link": "https://metadata.hibernet.top/nsum-bridge/nsum-bridge-0.4.2.17.jar",
