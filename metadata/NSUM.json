@@ -24,9 +24,9 @@
       "sha_256": "a7f6941f24e0e2ac53c883e2bced6c40b7aeb55353f251851b826cf592b8b7b3",
       "size_bytes": 53547751,
       "bridge_versions": [
-        ">=0.4.5.17"
+        ">=0.4.6"
       ],
-      "notes": "多仓库地址：workspace.json 1.1 的 git.remotes[] 与 .nsumpack pack_format 3 的 repository.urls[]（SSH/HTTPS/HTTP，客户端按序回退）；编辑器三地址输入与主地址选择；主程序/编辑器 SSH 密钥 GUI 与 exec git-ssh-key（生成/复制/测试/写 ssh config），自动注入 GIT_SSH_COMMAND 修复内置 MinGit 无 SSH 导致 300s 超时；exec repo-remotes；use_system_git=true 真正优先系统 Git；文档分版本（1.0.6 / 1.0.5）。配套 bridge 0.4.5.17。"
+      "notes": "多仓库地址：workspace.json 1.1 的 git.remotes[] 与 .nsumpack pack_format 3 的 repository.urls[]（SSH/HTTPS/HTTP，客户端按序回退）；编辑器三地址输入与主地址选择；主程序/编辑器 SSH 密钥 GUI 与 exec git-ssh-key（生成/复制/测试/写 ssh config），自动注入 GIT_SSH_COMMAND 修复内置 MinGit 无 SSH 导致 300s 超时；exec repo-remotes；use_system_git=true 真正优先系统 Git；文档分版本（1.0.6 / 1.0.5）。配套 bridge 0.4.6。"
     },
     {
       "version": "1.0.5",
@@ -36,9 +36,9 @@
       "sha_256": "261e35487c1a415115afacdd87b03829aafbc249be6e6b8eb3d7749a35e37d13",
       "size_bytes": 53083322,
       "bridge_versions": [
-        ">=0.4.4.17"
+        ">=0.4.4"
       ],
-      "notes": "编辑器 CLI（info/exec/help，含 git-status/add/commit/push/pull/fetch/log/diff/checkout/reset/config，AI 可直接操作仓库）；.nsumpack 改为清单型 pack_format 2（默认只含 nsum.index.json，登记 repository commit/git_branch 与 files[]；附带文件需 --embed-patterns 正则显式声明并记录来源）；配套 bridge 0.4.4.17 按 sha256 缓存附带文件"
+      "notes": "编辑器 CLI（info/exec/help，含 git-status/add/commit/push/pull/fetch/log/diff/checkout/reset/config，AI 可直接操作仓库）；.nsumpack 改为清单型 pack_format 2（默认只含 nsum.index.json，登记 repository commit/git_branch 与 files[]；附带文件需 --embed-patterns 正则显式声明并记录来源）；配套 bridge 0.4.4 按 sha256 缓存附带文件"
     },
     {
       "version": "1.0.4",
@@ -50,7 +50,7 @@
       "bridge_versions": [
         ">=0.2.5"
       ],
-      "notes": "NSUM 自身下载多线程化：git-update 与指针下载支持 HTTP Range 分片（默认 16 线程、阈值 8MB、失败回退单流，环境变量 NSUM_DOWNLOAD_* 可调）；bridge 0.4.3.17 同步支持 Runtime/HIC 依赖多线程下载（10 分钟总时限 + 失败回退 + sha256 校验）；含 1.0.3 的 HIC 多线程/外部下载模式与中文路径修复"
+      "notes": "NSUM 自身下载多线程化：git-update 与指针下载支持 HTTP Range 分片（默认 16 线程、阈值 8MB、失败回退单流，环境变量 NSUM_DOWNLOAD_* 可调）；bridge 0.4.3 同步支持 Runtime/HIC 依赖多线程下载（10 分钟总时限 + 失败回退 + sha256 校验）；含 1.0.3 的 HIC 多线程/外部下载模式与中文路径修复"
     },
     {
       "version": "1.0.3",
